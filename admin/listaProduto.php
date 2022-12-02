@@ -1,9 +1,29 @@
+<!-- definir tamanho maximo para imagem -->
+<style>
+  .imagem{
+    max-width: 150px;
+    max-height: 150px;
+    width: auto;
+    height: auto;
+  }
+</style>
+
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="index.php">Home</a></li>
     <li class="breadcrumb-item active" aria-current="page">Produtos</li>
   </ol>
 </nav>
+
+<?php 
+
+if(isset($_GET['mensagem'])){
+
+  $mensagem = $_GET['mensagem'];
+  echo "<div class='alert alert-success mt-2 text-center'> $mensagem </div>";
+}
+
+?>
 
 <div class="row">
     <div class="col-sm-2 offset-sm-10">
@@ -51,7 +71,11 @@ $totalLinhas = $executaSql->num_rows;
             
             // obter os dados da consulta e exibir utilizando o while
 
-            while($dados = $executaSql->fetch_assoc()){ ?>
+            while($dados = $executaSql->fetch_assoc()){ 
+              
+              $nomeImagem = $dados['imagemProduto'];
+
+              ?>
 
               <tr>
                 <td> <?php echo $dados['codProduto'];?> </td>
@@ -59,7 +83,7 @@ $totalLinhas = $executaSql->num_rows;
                 <td> <?php echo $dados['nomeProduto'];?> </td>
                 <td> <?php echo $dados['precoProduto'];?> </td>
                 <td> <?php echo $dados['descricaoProduto'];?> </td>
-                <td> <?php echo $dados['imagemProduto'];?> </td>
+                <td> <?php echo "<img class='imagem' src='../imagens/$nomeImagem'>";?> </td>
               </tr>
 
            <?php } // fim do while
@@ -72,3 +96,5 @@ $totalLinhas = $executaSql->num_rows;
 
     </div>
 </div>
+
+<img src="../imagens/" alt="">

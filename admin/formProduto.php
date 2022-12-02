@@ -6,15 +6,33 @@
   </ol>
 </nav>
 
+
+<?php 
+// verificar se existe o parametro 'erro' enviado via GET
+// GET é quando o parametro é envidao pela url ex:
+// http://localhost/upload_arquivos/login.php?erro=Usuário ou senha inválidos
+
+        
+if( isset($_GET['erro']) ){
+
+    $erro = $_GET['erro'];
+
+    echo "<div class='alert alert-danger mt-2'> $erro </div>";
+
+}     
+                        
+?>
+
 <?php 
 // receber a operacao via GET
 $operacao = $_GET['operacao'];
 ?>
 
+
 <div class="row">
     <div class="col-sm-6 offset-sm-30">
         
-        <form action="" method="POST">
+        <form action="acoesProduto.php" method="POST" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="nomeCategoria">Categoria</label>
                 <select name="categoriaProduto" class="form-control">
@@ -72,7 +90,7 @@ $operacao = $_GET['operacao'];
 
             <div class="form-group">
                 <label for="imagemProduto">Imagem</label>
-                <input type="file" class="form-control-file" name="imagemProduto">
+                <input type="file" class="form-control-file" name="imagemProduto" accept="image/*">
             </div>
 
             <input type="hidden" name="operacao" value="<?php echo $operacao;?>">
