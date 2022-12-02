@@ -1,7 +1,7 @@
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-    <li class="breadcrumb-item"><a href="index.php?pagina=listaCategoria">Produtos</a></li>
+    <li class="breadcrumb-item"><a href="index.php?pagina=listaProduto">Produtos</a></li>
     <li class="breadcrumb-item active" aria-current="page">Cadastro Produto</li>
   </ol>
 </nav>
