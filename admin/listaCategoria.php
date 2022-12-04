@@ -5,6 +5,16 @@
   </ol>
 </nav>
 
+<?php 
+
+if(isset($_GET['mensagem'])){
+
+  $mensagem = $_GET['mensagem'];
+  echo "<div class='alert alert-success mt-2 text-center'> $mensagem </div>";
+}
+
+?>
+
 <div class="row">
     <div class="col-sm-2 offset-sm-10">
         <a href="index.php?pagina=formCategoria&operacao=cadastrar" class="">

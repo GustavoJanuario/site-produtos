@@ -2,7 +2,7 @@
 <div class="container-fluid bg-primary">
     <div class="container">
         
-        <div class="row">
+        <div class="row justify-align-center">
 
             <div class="col-sm-8">
                 <h1>
